@@ -1,0 +1,20 @@
+	#baseURL = "https://mmarie.42.fr/static"
+	title = "42 Inception"
+	paginate = 8
+	canonifyURLs = true
+
+	[menu]
+	[[menu.main]]
+		identifier = "home"
+		name = "Home"
+		url = "/"
+		weight = 1
+	[[menu.main]]
+		identifier = "about"
+		name = "About"
+		url = "/about"
+		weight = 2
+
+	[params]
+	author = "Mel"
+	description = "Student at 42Perpignan"

@@ -1,0 +1,7 @@
+baseURL = "https://mmarie.42.fr/me"
+paginate = 8
+canonifyURLs = true
+
+[params]
+  author = "Melvyn Marie"
+  description = "Service Hugo Inception"

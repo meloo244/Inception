@@ -1,0 +1,120 @@
+# Restart: Always = Rule crash
+# build = Dockerfile for the service
+# Network = Communicates with other Dockers
+
+services:
+  nginx:  # NGINX
+    container_name: nginx
+    build: ./requirements/nginx
+    depends_on:
+      - mariadb
+    ports:
+      - 443:443
+    volumes:
+      - wordpress_data:/var/www/html
+    restart: always
+    networks:
+      - network
+
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+    networks:
+      - network
+    restart: always
+    env_file:
+      - .env
+
+  wordpress:
+    container_name: wordpress
+    depends_on:
+      - mariadb
+    build:
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - network
+
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis
+    depends_on:
+      - wordpress
+    ports:
+     - '6379:6379'
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - network
+
+  adminer:
+    build: ./requirements/bonus/adminer
+    restart: always
+    depends_on:
+      - mariadb
+    expose:
+     - "9000"
+    networks:
+      - network
+
+  hugo:
+    container_name: hugo
+    build: ./requirements/bonus/hugo
+    restart: always
+    networks:
+      - network
+
+  static_page:
+    container_name: static_page
+    build: ./requirements/bonus/staticpage
+    restart: always
+    networks:
+      - network
+
+  ftp-server:
+    build: requirements/bonus/ftp_server
+    container_name: ftp-server
+    ports:
+      - "21:21"
+      - "21100-21110:21100-21110"
+    volumes:
+      - "wordpress_data:/var/www/html"
+    networks:
+      - network
+    restart: always
+    environment:
+      FTP_USR: ${FTP_USR}
+      FTP_PWD: ${FTP_PWD}
+
+# Volume part & Networking
+
+volumes:
+  mariadb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/mel/Inception/data/mariadb/
+      o: bind
+  wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/mel/Inception/data/wordpress/
+      o: bind
+
+networks:
+  network:
+    driver: bridge
+
+# Bonus Part... (Adminer, )
+
