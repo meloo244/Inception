@@ -103,13 +103,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/mel/Inception/data/mariadb/
+      device: /Users/mel/Inception/volume/mariadb/
       o: bind
   wordpress_data:
     driver: local
     driver_opts:
       type: none
-      device: /Users/mel/Inception/data/wordpress/
+      device: /Users/mel/Inception/volume/wordpress/
       o: bind
 
 networks:

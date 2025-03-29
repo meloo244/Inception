@@ -6,7 +6,7 @@
 #    By: mmarie <mmarie@student.42perpignan.fr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/21 17:11:51 by mmarie            #+#    #+#              #
-#    Updated: 2025/03/28 13:38:27 by mmarie           ###   ########.fr        #
+#    Updated: 2025/03/29 09:03:46 by mmarie           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RUN mkdir /etc/nginx/ssl
 RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 42 -nodes \
 	-out /etc/nginx/ssl/mmarie.crt \
 	-keyout /etc/nginx/ssl/mmarie.key \
-	-subj "/C=FR/ST=Paris/L=Paris/0=42/OU=mmarie/CN=mmarie.42.fr/"
+	-subj "/C=FR/ST=Perpignan/L=Perpignan/O=42/OU=mmarie/CN=mmarie.42.fr/"
 
 COPY ./conf/nginx.conf /etc/nginx/conf.d
 

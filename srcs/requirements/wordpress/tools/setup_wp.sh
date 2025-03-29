@@ -23,16 +23,17 @@ else
     # Supprimer le répertoire vide 'wordpress'
     rm -rf wordpress
 
-echo $MYSQL_USER
-echo $MYSQL_PASSWORD
-echo $MYSQL_HOSTNAME
-echo $MYSQL_DATABASE
+echo "MYSQL_USER=$MYSQL_USER"
+echo "MYSQL_PASSWORD=$MYSQL_PASSWORD"
+echo "MYSQL_HOSTNAME=$MYSQL_HOSTNAME"
+echo "MYSQL_DATABASE=$MYSQL_DATABASE"
+# Afficher les variables d'environnement pour le débogage
 
-Sed est un outil puissant pour manipuler et modifier des fichiers en remplaçant précisément les éléments nécessaires.
-sed -i "s/mmarie/$MYSQL_USER/g" wp-config-sample.php
-sed -i "s/mmarie_pwd42/$MYSQL_PASSWORD/g" wp-config-sample.php
-sed -i "s/mariadb/$MYSQL_HOSTNAME/g" wp-config-sample.php
-sed -i "s/wordpress/$MYSQL_DATABASE/g" wp-config-sample.php
+#Sed est un Outil tres puissant qui permet de faire de la gestion de fichier et remplace ce qu'il
+sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php
+	sed -i "s/password_here/$MYSQL_PASSWORD/g" wp-config-sample.php
+	sed -i "s/localhost/$MYSQL_HOSTNAME/g" wp-config-sample.php
+	sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php
 	cp wp-config-sample.php wp-config.php
 
 ##bonus
@@ -45,6 +46,10 @@ sed -i "s/wordpress/$MYSQL_DATABASE/g" wp-config-sample.php
 	wp plugin install redis-cache --activate --allow-root
     wp plugin update --all --allow-root
 	wp redis enable --allow-root
+
+	#Change password for the user mmarie and Update DB
+	wp db update --allow-root
+	wp user update mmarie --user_pass="admin" --allow-root
 
 fi
 exec "$@"
