@@ -6,6 +6,8 @@ WP_VERSION="6.7.2-fr_FR"
 # Vérifier si WordPress est déjà installé en vérifiant la présence du fichier wp-config.php
 if [ -f ./wp-config.php ]; then
     echo "WordPress is already downloaded"
+	echo "new wp"
+	cp wp-config.php /var/www/html/wp-config.php
 else
     # Télécharger WordPress si le fichier wp-config.php n'existe pas
     echo "Downloading WordPress version $WP_VERSION..."

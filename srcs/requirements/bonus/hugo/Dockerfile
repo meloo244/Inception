@@ -14,7 +14,7 @@ RUN hugo new site /var/hugo/me \
  	&&     hugo -b https://mmarie.42.fr/me
 
 COPY	./conf/config.toml	/var/hugo/me/config.toml
-COPY	conf/avatar.png		/var/hugo/me/themes/m10c/static/avatar.png
+COPY	conf/avatar.jpg		/var/hugo/me/themes/m10c/static/avatar.jpg
 COPY	./conf/style.css		/var/hugo/me/assets/css/style.css
 COPY ./conf/baseof.html /var/hugo/me/layouts/_default/baseof.html
 COPY ./conf/index.html /var/hugo/me/layouts/
