@@ -8,6 +8,7 @@ if [ -f ./wp-config.php ]; then
     echo "WordPress is already downloaded"
 	echo "new wp"
 	cp wp-config.php /var/www/html/wp-config.php
+	wp user update mmarie --user_pass=Melvyn13/ --allow-root
 else
     # Télécharger WordPress si le fichier wp-config.php n'existe pas
     echo "Downloading WordPress version $WP_VERSION..."
@@ -51,7 +52,6 @@ sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php
 
 	#Change password for the user mmarie and Update DB
 	wp db update --allow-root
-	wp user update mmarie --user_pass="admin" --allow-root
-
+	wp user update mmarie --user_pass=Melvyn13/ --allow-root
 fi
 exec "$@"

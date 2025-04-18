@@ -6,8 +6,11 @@ mysql_install_db
 
 if [ -d "/var/lib/mysql/$MYSQL_DATABASE" ]
 then
-
+	mysql -uroot wordpress -p
+	SOURCE /usr/local/bin/wordpress.sql;
+	FLUSH PRIVILEGES;
 	echo "Database already exists"
+
 else
 
 #root acces
