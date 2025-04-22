@@ -6,13 +6,16 @@ mysql_install_db
 
 if [ -d "/var/lib/mysql/$MYSQL_DATABASE" ]
 then
-	mysql -uroot wordpress -p
-	SOURCE /usr/local/bin/wordpress.sql;
-	FLUSH PRIVILEGES;
 	echo "Database already exists"
-
 else
 
+# Attendre que le serveur MariaDB soit prêt (max 30s)
+for i in {1..30}; do
+  if mysqladmin ping --silent; then
+    break
+  fi
+  sleep 1
+done
 #root acces
 mysql_secure_installation << _EOF_
 
@@ -32,6 +35,7 @@ echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE; GRANT ALL ON $MYSQL_DATABAS
 
 # Creata Database in WordPress
 mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/wordpress.sql
+
 
 
 fi

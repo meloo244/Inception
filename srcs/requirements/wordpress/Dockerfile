@@ -14,6 +14,8 @@ RUN apt-get update && apt-get -y install \
 		php-mbstring \
 		redis \
 		php-redis \
+		vim \
+		unzip \
 		&& rm -rf /var/lib/apt/lists/*
 
 #Dl wp-cli & Change perm
@@ -22,7 +24,7 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 	&& mv wp-cli.phar /usr/local/bin/wp
 
 COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/
-COPY ./tools/wp-config.php /var/www/html/wp-config.php
+COPY ./tools/wp-config-sample.php /var/www/html/wp-config-sample.php
 COPY ./tools/change_user.sh /usr/local/bin/
 
 #Enable php

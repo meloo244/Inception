@@ -4,27 +4,29 @@
 WP_VERSION="6.7.2-fr_FR"
 
 # Vérifier si WordPress est déjà installé en vérifiant la présence du fichier wp-config.php
-if [ -f ./wp-config.php ]; then
+if [ -f /var/www/html/wp-config.php ]; then
     echo "WordPress is already downloaded"
 	echo "new wp"
-	cp wp-config.php /var/www/html/wp-config.php
-	wp user update mmarie --user_pass=Melvyn13/ --allow-root
+	sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php
+	sed -i "s/password_here/$MYSQL_PASSWORD/g" wp-config-sample.php
+	sed -i "s/localhost/$MYSQL_HOSTNAME/g" wp-config-sample.php
+	sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php
+
+	cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+	wp user update mmarie --user_pass=$WP_USERPASSWORD --allow-root
 else
     # Télécharger WordPress si le fichier wp-config.php n'existe pas
-    echo "Downloading WordPress version $WP_VERSION..."
-    curl -O https://fr.wordpress.org/wordpress-$WP_VERSION.tar.gz
+    echo "Downloading WordPress version Latest version in FR..."
+    curl -O https://fr.wordpress.org/latest-fr_FR.zip
 
     # Extraire les fichiers de WordPress
-    tar xfz wordpress-$WP_VERSION.tar.gz
-
-    # Supprimer l'archive téléchargée pour garder l'image propre
-    rm -rf wordpress-$WP_VERSION.tar.gz
+    unzip latest-fr_FR.zip
 
     # Déplacer les fichiers extraits dans le répertoire actuel (si nécessaire)
     mv wordpress/* .
 
     # Supprimer le répertoire vide 'wordpress'
-    rm -rf wordpress
+    rm -rf latest-fr_FR.zip
 
 echo "MYSQL_USER=$MYSQL_USER"
 echo "MYSQL_PASSWORD=$MYSQL_PASSWORD"
@@ -37,7 +39,7 @@ sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php
 	sed -i "s/password_here/$MYSQL_PASSWORD/g" wp-config-sample.php
 	sed -i "s/localhost/$MYSQL_HOSTNAME/g" wp-config-sample.php
 	sed -i "s/database_name_here/$MYSQL_DATABASE/g" wp-config-sample.php
-	cp wp-config-sample.php wp-config.php
+	cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 
 ##bonus
 
@@ -52,6 +54,6 @@ sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php
 
 	#Change password for the user mmarie and Update DB
 	wp db update --allow-root
-	wp user update mmarie --user_pass=Melvyn13/ --allow-root
+	wp user update mmarie --user_pass=$WP_USERPASSWORD --allow-root
 fi
 exec "$@"
