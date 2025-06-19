@@ -1,4 +1,4 @@
-	#baseURL = "https://mmarie.42.fr/static"
+	#baseURL = "https://******.42.fr/static"
 	title = "42 Inception"
 	paginate = 8
 	canonifyURLs = true

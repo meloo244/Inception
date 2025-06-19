@@ -45,9 +45,9 @@ wp plugin install redis-cache --activate --allow-root
 wp plugin update --all --allow-root
 wp redis enable --allow-root
 
-#Change password for the user mmarie and Update DB
+#Change password for the user ****** and Update DB
 wp db update --allow-root
-wp user update mmarie --user_pass=$WP_USERPASSWORD --allow-root
+wp user update ****** --user_pass=$WP_USERPASSWORD --allow-root
 
 fi
 

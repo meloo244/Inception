@@ -277,7 +277,7 @@ class Item implements RegistryAware
     /**
      * Get the content for the item
      *
-     * Prefers summaries over full content , but will return full content if a
+     * Prefers su******s over full content , but will return full content if a
      * summary does not exist.
      *
      * To prefer full content instead, use {@see get_content}
@@ -328,10 +328,10 @@ class Item implements RegistryAware
     /**
      * Get the content for the item
      *
-     * Prefers full content over summaries, but will return a summary if full
+     * Prefers full content over su******s, but will return a summary if full
      * content does not exist.
      *
-     * To prefer summaries instead, use {@see get_description}
+     * To prefer su******s instead, use {@see get_description}
      *
      * Uses `<atom:content>` or `<content:encoded>` (RSS 1.0 Content Module)
      *

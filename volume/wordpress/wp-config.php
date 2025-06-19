@@ -23,10 +23,10 @@
 define( 'DB_NAME', 'wordpress' );
 
 /** Database username */
-define( 'DB_USER', 'mmarie42' );
+define( 'DB_USER', '******42' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'mmarie_pwd42' );
+define( 'DB_PASSWORD', '******_pwd42' );
 
 /** Database hostname */
 define( 'DB_HOST', 'mariadb' );
@@ -93,7 +93,7 @@ define( 'WP_DEBUG', false );
 
 define( 'WP_REDIS_HOST', 'redis' );
 define( 'WP_REDIS_PORT', 6379 );
-define( 'WP_CACHE_KEY_SALT', 'mmarie.42.fr' );
+define( 'WP_CACHE_KEY_SALT', '******.42.fr' );
 define( 'WP_REDIS_CLIENT', 'phpredis' );
 /* That's all, stop editing! Happy publishing. */
 

@@ -1,4 +1,4 @@
-baseURL = "https://mmarie.42.fr/me"
+baseURL = "https://******.42.fr/me"
 paginate = 8
 canonifyURLs = true
 

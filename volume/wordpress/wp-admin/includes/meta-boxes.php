@@ -754,7 +754,7 @@ function post_excerpt_meta_box( $post ) {
 	<?php
 	printf(
 		/* translators: %s: Documentation URL. */
-		__( 'Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href="%s">Learn more about manual excerpts</a>.' ),
+		__( 'Excerpts are optional hand-crafted su******s of your content that can be used in your theme. <a href="%s">Learn more about manual excerpts</a>.' ),
 		__( 'https://wordpress.org/documentation/article/what-is-an-excerpt-classic-editor/' )
 	);
 	?>

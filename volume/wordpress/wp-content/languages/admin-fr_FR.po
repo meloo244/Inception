@@ -6360,7 +6360,7 @@ msgid "It is your responsibility to write a comprehensive privacy policy, to mak
 msgstr "Il est de votre responsabilité de rédiger une politique de confidentialité compréhensible, de vous assurer qu’elle reflète les exigences nationales et internationales sur la vie privée et de maintenir cette politique à jour et exacte."
 
 #: wp-admin/privacy-policy-guide.php:78
-msgid "Please edit your privacy policy content, making sure to delete the summaries, and adding any information from your theme and plugins. Once you publish your policy page, remember to add it to your navigation menu."
+msgid "Please edit your privacy policy content, making sure to delete the su******s, and adding any information from your theme and plugins. Once you publish your policy page, remember to add it to your navigation menu."
 msgstr "Veuillez modifier le contenu de votre politique de confidentialité. Assurez-vous de supprimer les exemples de textes et d’ajouter les différentes informations à propos de vos thèmes et extensions. Une fois votre page publiée, pensez à l’ajouter à votre menu de navigation ou à votre pied de page."
 
 #: wp-admin/privacy-policy-guide.php:76
@@ -7681,7 +7681,7 @@ msgstr "Un rétrolien est une manière de notifier les anciens systèmes de blog
 
 #. translators: %s: Documentation URL.
 #: wp-admin/includes/meta-boxes.php:757
-msgid "Excerpts are optional hand-crafted summaries of your content that can be used in your theme. <a href=\"%s\">Learn more about manual excerpts</a>."
+msgid "Excerpts are optional hand-crafted su******s of your content that can be used in your theme. <a href=\"%s\">Learn more about manual excerpts</a>."
 msgstr "Les extraits sont des résumés facultatifs de vos articles, écrits à la main. Il se peut que votre thème s’en serve. <a href=\"%s\">En savoir plus</a>."
 
 #: wp-admin/edit-form-advanced.php:288
