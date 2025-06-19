@@ -3,5 +3,5 @@ paginate = 8
 canonifyURLs = true
 
 [params]
-  author = "Melvyn Marie"
+  author = "Mel
   description = "Service Hugo Inception"
